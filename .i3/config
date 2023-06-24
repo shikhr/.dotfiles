@@ -1,0 +1,347 @@
+set $mod Mod1
+set $mod2 Mod4
+
+#font pango:Source Code Pro 12
+font pango:Fira Code Bold 12
+exec --no-startup-id dunst
+
+# Background
+exec --no-startup-id picom -b
+exec --no-startup-id exec zsh $HOME/.fehbg &
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+# %%hotkey: Mouse+$mod to drag floating windows %%
+floating_modifier $mod
+
+# start a terminal
+# %%hotkey: Open terminal %%
+bindsym $mod+Return exec st
+
+# Rofi
+# %%hotkey: Open dmenu %%
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
+# %%hotkey: Open tab-switcher %%
+bindsym $mod+Tab exec --no-startup-id rofi  -show window -show-icons
+
+# rofi-calc - useful calc tool
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
+
+# %%hotkey: List dmenu Hotkeys %%
+bindsym $mod2+d exec --no-startup-id "dmenu_hotkeys run -m rofi -a i3"
+
+bindsym $mod2+p exec --no-startup-id "powermenu_rofi"
+
+# GUI file manager -- thunar
+# %%hotkey: Open file manager(thunar) %%
+bindsym $mod+Shift+f exec --no-startup-id thunar
+
+# Shutdown/restart system
+# %%hotkey: Shutdown/restart options %%
+bindsym $mod+Shift+w mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#Autostart
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xcompmgr
+exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id clipit
+exec --no-startup-id blueman-applet
+exec_always --no-startup-id sbxkb
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+u focus up
+bindsym $mod+k focus right
+
+# kill focused window (vim delete, follows vimperator settings more than vim)
+# %%hotkey: Kill focussed window %%
+bindsym $mod+q kill
+
+# %%hotkey: Switch to next workspace %%
+bindsym $mod2+l workspace next
+# %%hotkey: Switch to previous workspace %%
+bindsym $mod2+h workspace prev
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+u move up
+bindsym $mod+Shift+k move right
+
+# These are more like the tmux config we will get to later, but are intuitive
+# TMUX like
+bindsym $mod+Shift+b  split vertical
+bindsym $mod+Shift+v split horizontal
+
+# enter fullscreen mode for the focused container
+bindsym $mod+Shift+z fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+# %%hotkey: Toggle floating/Tiling window %%
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+# %%hotkey: Change focus between floating/tiling windows %%
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+# %%hotkey: Focus on the parent container %%
+bindsym $mod+a focus parent
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+# %%hotkey: Reload configuration file %%
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# %%hotkey: Restart i3 session %%
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout?' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+# %%hotkey: Resize window %%
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
+bar {
+        i3bar_command i3bar
+        status_command i3status
+        position bottom
+
+ 	mode hide
+    	hidden_state hide
+    	modifier $mod2
+
+# please set your primary output first. Example: 'xrandr --output eDP1 >
+#       tray_output primary
+#       tray_output eDP1
+	tray_padding 2
+	font pango:DejaVu Sans Mono 11
+
+	workspace_min_width 25
+
+        bindsym button4 nop
+        bindsym button5 nop
+#   font xft:URWGothic-Book 11
+        strip_workspace_numbers yes
+        separator_symbol " | "
+
+
+    colors {
+        background #14181A
+        statusline #A0A5A6
+	separator  #444C5C
+
+#       border             backgr.         text
+	focused_workspace  #4C7899 #285577 #FFFFFF
+	active_workspace   #333333 #222222 #FFFFFF
+	inactive_workspace #333333 #222222 #888888
+	urgent_workspace   #2F343A #900000 #FFFFFF
+	binding_mode       #2F343A #900000 #FFFFFF
+    }
+}
+
+# hide/unhide i3status bar
+# %%hotkey: Toggle status bar %%
+bindsym $mod+m bar mode toggle
+
+# Theme colors
+# class                 border  bground text    indicator child_border
+client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+#############################
+### settings for i3-gaps: ###
+#############################
+
+# Set inner/outer gaps
+gaps inner 2
+gaps outer 0
+for_window [class=".*"] border pixel 0
+
+
+# Additionally, you can issue commands with the following syntax. This is >
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only >
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size>
+smart_borders on
+
+default_border pixel 4
+
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying ou>
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# YAD popup
+for_window [class="Yad"] floating enable
+
+for_window [floating] move position center
+
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
+
+# Flash Focus
+# opacity-rule = [
+#   "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+# ];
+exec_always --no-startup-id flashfocus
+bindsym $mod+n exec --no-startup-id flash_window
+
+# %%hotkey: Screenshot %%
+bindsym Print exec --no-startup-id "maim  ~/Pictures/screenshots/screenshot_from_$(date +%Y-%m-%d_%H-%M-%S).png"
+# %%hotkey: Screenshot selection  %%
+bindsym Shift+Print exec --no-startup-id "maim -s ~/Pictures/screenshots/screenshot_from_$(date +%Y-%m-%d_%H-%M-%S).png"
+
+#change volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%-
+bindsym XF86AudioMute exec amixer --no-startup-id set Master toggle
+
+# music control
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioStop exec --no-startup-id mpc stop
