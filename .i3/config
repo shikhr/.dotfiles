@@ -257,8 +257,6 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size>
 smart_borders on
 
-default_border pixel 4
-
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying ou>
 set $mode_gaps Gaps: (o) outer, (i) inner
