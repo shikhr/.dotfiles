@@ -35,6 +35,15 @@ bindsym $mod2+p exec --no-startup-id "powermenu_rofi"
 # %%hotkey: Open file manager(thunar) %%
 bindsym $mod+Shift+f exec --no-startup-id thunar
 
+
+# Compositer
+# enable compositing
+bindsym $mod+$mod2+c exec --no-startup-id picom -b
+
+# disable compositing
+bindsym $mod+$mod2+x exec --no-startup-id pkill --exact picom
+
+
 # Shutdown/restart system
 # %%hotkey: Shutdown/restart options %%
 bindsym $mod+Shift+w mode "$mode_system"
@@ -81,6 +90,8 @@ bindsym $mod+q kill
 bindsym $mod2+l workspace next
 # %%hotkey: Switch to previous workspace %%
 bindsym $mod2+h workspace prev
+
+bindsym $mod2+Tab workspace prev
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -334,9 +345,9 @@ bindsym Print exec --no-startup-id "maim  ~/Pictures/screenshots/screenshot_from
 bindsym Shift+Print exec --no-startup-id "maim -s ~/Pictures/screenshots/screenshot_from_$(date +%Y-%m-%d_%H-%M-%S).png"
 
 #change volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer --no-startup-id set Master toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%-
+#bindsym XF86AudioMute exec amixer --no-startup-id set Master toggle
 
 # music control
 bindsym XF86AudioNext exec --no-startup-id mpc next
