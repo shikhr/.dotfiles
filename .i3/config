@@ -1,6 +1,9 @@
 set $mod Mod1
 set $mod2 Mod4
 
+set $fm eDP-1
+set $sm HDMI-1
+
 #font pango:Source Code Pro 12
 font pango:Fira Code Bold 12
 exec --no-startup-id dunst
@@ -148,6 +151,17 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+
+workspace 1 output $fm
+workspace 3 output $fm
+workspace 5 output $fm
+workspace 7 output $fm
+workspace 9 output $fm
+workspace 2 output $sm
+workspace 4 output $sm
+workspace 6 output $sm
+workspace 8 output $sm
+workspace 0 output $sm
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
