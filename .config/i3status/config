@@ -49,7 +49,7 @@ disk "/" {
 
 ethernet _first_ {
 # if you use %speed, i3status requires root privileges
-        format_up = "<span color='#e09422'>LAN</span> %ip %speed"
+        format_up = "<span color='#e09422'>LAN</span> %ip"
         format_down = "no lan"
 }
 
