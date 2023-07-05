@@ -66,14 +66,14 @@ battery all {
         last_full_capacity = true
         integer_battery_capacity = true
         # status_chr = ""
-        status_chr = "<span color='#e09422'></span> "
+        status_chr = "<span color='#e09422'></span>"
         # status_bat = "bat"
         # status_bat = "☉"
-        status_bat = "<span color='#e09422'></span>  "
+        status_bat = "<span color='#e09422'></span>"
         # status_unk = "?"
         status_unk = ""
         # status_full = ""
-        status_full = "<span color='#2aa198'></span>  "
+        status_full = "<span color='#2aa198'></span>"
         low_threshold = 15
         threshold_type = time
 }

@@ -13,6 +13,13 @@ icons = "awesome6"
 #bat_charging = "|^| "
 
 [[block]]
+block = "battery"
+format = " $icon $percentage "
+missing_format = ""
+#charging_format = " $icon "
+interval = 1
+
+[[block]]
 block = "cpu"
 
 [[block]]
@@ -34,17 +41,16 @@ format = " $icon $mem_used.eng(w:3,prefix:Gi) "
 format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
 
 [[block]]
-block = "battery"
-format = " $icon $percentage "
-device = "DisplayDevice"
-driver = "upower"
-missing_format = "no"
-empty_format = "test"
-charging_format = "C"
+block = "sound"
+max_vol = 100
+step_width = 5
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
 
 [[block]]
 block = "music"
-format = " $icon {$combo.str(max_w:30) $prev $next |} "
+format = "{ $icon $combo.str(max_w:30) $prev $next |}"
 [[block.click]]
 button = "left"
 action = "play_pause"
@@ -56,12 +62,8 @@ button = "down"
 action = "volume_down"
 
 [[block]]
-block = "sound"
-max_vol = 100
-step_width = 5
-[[block.click]]
-button = "left"
-cmd = "pavucontrol"
+block = "net"
+format = " $icon {$essid | LAN}"
 
 [[block]]
 block = "time"
