@@ -7,6 +7,7 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
+        output_format="i3bar"
         colors = true
         interval = 2
         color_good = "#2AA198"
@@ -49,13 +50,13 @@ disk "/" {
 
 ethernet _first_ {
 # if you use %speed, i3status requires root privileges
-        format_up = "<span color='#e09422'>LAN</span> %ip"
-        format_down = "no lan"
+        format_up = "<span color='#e09422'>LAN</span>"
+        format_down = "LAN"
 }
 
 wireless _first_ {
   format_up = "<span color='#e09422'>WLS</span> %essid"
-  format_down  = "<span color='#e09422'>WLS</span> down"
+  format_down  = "WLS"
 }
 
 battery all {
