@@ -34,6 +34,8 @@ bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -
 bindsym $mod2+d exec --no-startup-id "dmenu_hotkeys run -m rofi -a i3"
 
 bindsym $mod2+p exec --no-startup-id "powermenu_rofi"
+bindsym $mod2+m exec --no-startup-id "~/.config/rofi/music/music"
+
 
 # GUI file manager -- thunar
 # %%hotkey: Open file manager(thunar) %%
