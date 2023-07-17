@@ -1,0 +1,15 @@
+
+* {
+bg: rgba (30, 34, 42, 65 %);
+bgfull: rgba (30, 34, 42, 100 %);
+bgAlt: #252931;
+fg: rgba(97, 175, 239, 100%);
+fgfull: #61AFEF;
+button: #252931;
+text-color: @fg;
+}
+
+configuration {
+  font: "FiraCode Nerd Font 13";
+}
+

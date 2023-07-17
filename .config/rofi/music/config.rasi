@@ -1,0 +1,58 @@
+@theme "/dev/null"
+
+* {
+  text-color:		@fg; 
+  iconfont: "FiraCode Nerd Font 13";
+  background-color:	rgba(0,0,0,0%);
+}
+
+@import "../Themes/style.rasi"
+
+window {
+  transparency:		"real";
+  width:		600px;
+  background-color:	@bg;
+  location:   south east;
+  anchor:   south east;
+  x-offset: -32px;
+  y-offset: -48px;
+}
+
+prompt {
+  padding:		10px;
+  expand: true;
+}
+
+inputbar {
+  children:		[ prompt ];
+  expand:		true;
+  padding: 10px;
+}
+
+listview {
+  padding: 10px 100px;
+  expand: false;
+  cycle:		true;
+  layout:		horizontal;
+}
+
+mainbox { 
+  children: [ inputbar, listview ];
+}
+
+element {
+  padding:		0px 10px 0px 10px;
+  border-radius:	8px;
+}
+
+element-text {
+  margin:		5px 18px 5px 18px;
+  padding:		0px 0px 0px 0px;
+  font:			"FiraCode Nerd Font 40";
+  text-color: inherit;
+}
+element selected {
+  background-color:     @fg; 
+  text-color:		@bgfull;
+}
+

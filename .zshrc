@@ -120,6 +120,46 @@ alias cputempinfo="watch -n 0.5 \"sensors | grep Package -A 5\""
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+alias uchrome='cd /home/shikhar/.mozilla/firefox/m54rlod7.default-release/chrome'
+
+alias cd..='cd ..'
+alias ..='cd ..'
+
+alias path='echo -e ${PATH//:/\\n}'
+
+alias ping='ping -c 5'
+
+# do not delete / or prompt if deleting more than 3 files at a time #
+alias rm='rm -I --preserve-root'
+
+alias wget='wget -c'
+
+# confirmation #
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+
+alias cdata='cd /mnt/data'
+
+cpower() {
+  case $* in
+     cool ) command sudo cpupower frequency-set -u 1.0GHz;;
+     save ) command sudo cpupower frequency-set -u 1.5GHz;;
+     balance ) command sudo cpupower frequency-set -u 1.8GHz;;
+     full ) command sudo cpupower frequency-set -u 2.2GHz;;
+     turbo ) command sudo cpupower frequency-set -u 2.4GHz;;
+     * ) command echo -e 'cool\t\t1.0GHz\nsave\t\t1.5GHz\nbalance\t\t1.8GHz\nfull\t\t2.2GHz\nturbo\t\t2.4GHz\n';;
+  esac
+}
+
+Hello () {
+   echo "Hello World"
+}
+
+# Remove ugly green background in mount dirs
+LS_COLORS+=':ow=01;33'
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
