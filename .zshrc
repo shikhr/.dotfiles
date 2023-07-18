@@ -117,6 +117,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias cpuinfo="watch -n 0.5 grep \\\"cpu MHz\\\" \/proc\/cpuinfo"
 alias cputempinfo="watch -n 0.5 \"sensors | grep Package -A 5\""
+alias watch-sen="watch -n 0.5 sensors" 
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -141,6 +142,9 @@ alias ln='ln -i'
 
 alias cdata='cd /mnt/data'
 
+alias gdsync='rclone sync --interactive ~/Documents gdex:mydocs'
+alias gdcheck='rclone check ~/Documents gdex:mydocs'
+
 cpower() {
   case $* in
      cool ) command sudo cpupower frequency-set -u 1.0GHz;;
@@ -148,6 +152,7 @@ cpower() {
      balance ) command sudo cpupower frequency-set -u 1.8GHz;;
      full ) command sudo cpupower frequency-set -u 2.2GHz;;
      turbo ) command sudo cpupower frequency-set -u 2.4GHz;;
+     info ) command cpupower frequency-info | grep -E "current policy|hardware limits|current CPU frequency";;
      * ) command echo -e 'cool\t\t1.0GHz\nsave\t\t1.5GHz\nbalance\t\t1.8GHz\nfull\t\t2.2GHz\nturbo\t\t2.4GHz\n';;
   esac
 }
