@@ -1,5 +1,5 @@
-set $mod Mod1
-set $mod2 Mod4
+set $mod Mod4
+set $mod2 Mod1
 set $mod3 Mod3
 
 set $fm eDP-1
@@ -31,7 +31,7 @@ bindsym $mod+Tab exec --no-startup-id rofi  -show window -show-icons
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # %%hotkey: List dmenu Hotkeys %%
-bindsym $mod2+d exec --no-startup-id "dmenu_hotkeys run -m rofi -a i3"
+#
 
 bindsym $mod2+p exec --no-startup-id "powermenu_rofi"
 bindsym $mod2+m exec --no-startup-id "~/.config/rofi/music/music"
@@ -67,6 +67,18 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+
+
+bindsym $mod+Shift+y mode "$mode_zero"
+set $mode_zero mode_zero
+mode "$mode_zero" {
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
 
 #Autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

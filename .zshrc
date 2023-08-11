@@ -145,6 +145,11 @@ alias cdata='cd /mnt/data'
 alias gdsync='rclone sync --interactive ~/Documents gdex:mydocs'
 alias gdcheck='rclone check ~/Documents gdex:mydocs'
 
+# Mongodb
+alias runmongo='sudo systemctl start mongodb.service'
+alias stopmongo='sudo systemctl stop mongodb.service'
+
+
 cpower() {
   case $* in
      cool ) command sudo cpupower frequency-set -u 1.0GHz;;
