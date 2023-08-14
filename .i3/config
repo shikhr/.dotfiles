@@ -21,6 +21,9 @@ floating_modifier $mod
 # %%hotkey: Open terminal %%
 bindsym $mod+Return exec st
 
+## random wallpaper
+bindsym $mod+Shift+Control+e exec --no-startup-id "feh --bg-fill --randomize /home/shikhar/Pictures/Wallpapers/*"
+
 # Rofi
 # %%hotkey: Open dmenu %%
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
