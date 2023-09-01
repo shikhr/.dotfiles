@@ -44,7 +44,6 @@ bindsym $mod2+m exec --no-startup-id "~/.config/rofi/music/music"
 # %%hotkey: Open file manager(thunar) %%
 bindsym $mod+Shift+f exec --no-startup-id thunar
 
-
 # Compositer
 # enable compositing
 bindsym $mod+$mod2+c exec --no-startup-id picom -b
@@ -385,8 +384,11 @@ for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [class="Gcolor3"] floating enable
 for_window [class="Blueman-manager"] floating enable
 
+for_window [class="floating"] floating enable
+for_window [ title="floatwin" ] floating enable
 
 for_window [floating] move position center
+
 
 set_from_resource $darkred     color1  #000000
 set_from_resource $red         color9  #000000

@@ -19,7 +19,7 @@ general {
 # order += "ipv6"
 order += "cpu_usage"
 #order += "cpu_temperature 0"
-# order += "disk /"
+order += "disk /"
 # order += "disk /home"
 # order += "load"
 order += "memory"
