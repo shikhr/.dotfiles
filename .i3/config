@@ -36,8 +36,12 @@ bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -
 # %%hotkey: List dmenu Hotkeys %%
 #
 
-bindsym $mod2+p exec --no-startup-id "powermenu_rofi"
-bindsym $mod2+m exec --no-startup-id "~/.config/rofi/music/music"
+bindsym $mod3+p exec --no-startup-id "powermenu_rofi"
+bindsym $mod3+m exec --no-startup-id "~/.config/rofi/music/music"
+
+# dunst last notification
+bindsym $mod3+k exec --no-startup-id "dunstctl history-pop"
+bindsym $mod3+j exec --no-startup-id "dunstctl close"
 
 
 # GUI file manager -- thunar
@@ -90,7 +94,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
 exec --no-startup-id copyq
 exec_always --no-startup-id sbxkb
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 20 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
