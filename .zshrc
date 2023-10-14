@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+#************************************************************
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -142,8 +144,12 @@ alias ln='ln -i'
 
 alias cdata='cd /mnt/data'
 
-alias gdsync='rclone sync --interactive ~/Documents gdex:mydocs'
-alias gdcheck='rclone check ~/Documents gdex:mydocs'
+alias gdpush='rclone sync --interactive -P ~/Documents gdex:mydocs'
+alias gdpull='rclone sync --interactive -P gdex:mydocs ~/Documents'
+alias gdcheckup='rclone check ~/Documents gdex:mydocs'
+alias gdcheckdown='rclone check gdex:mydocs ~/Documents'
+
+alias "ip a"='ip -c a'
 
 # Mongodb
 alias runmongo='sudo systemctl start mongodb.service'
@@ -162,9 +168,7 @@ cpower() {
   esac
 }
 
-Hello () {
-   echo "Hello World"
-}
+#************************************************************
 
 # Remove ugly green background in mount dirs
 LS_COLORS+=':ow=01;33'

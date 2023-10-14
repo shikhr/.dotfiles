@@ -44,6 +44,9 @@ bindsym $mod3+k exec --no-startup-id "dunstctl history-pop"
 bindsym $mod3+j exec --no-startup-id "dunstctl close"
 
 
+bindsym $mod2+Shift+n exec --no-startup-id volumeicon
+
+
 # GUI file manager -- thunar
 # %%hotkey: Open file manager(thunar) %%
 bindsym $mod+Shift+f exec --no-startup-id thunar
