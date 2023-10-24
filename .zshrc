@@ -155,6 +155,7 @@ alias "ip a"='ip -c a'
 alias runmongo='sudo systemctl start mongodb.service'
 alias stopmongo='sudo systemctl stop mongodb.service'
 
+alias mkff="bash mkff.sh"
 
 cpower() {
   case $* in

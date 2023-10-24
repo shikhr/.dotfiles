@@ -391,6 +391,8 @@ for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [class="Gcolor3"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="copyq"] floating enable
+for_window [class="uget-gtk"] floating enable
+
 
 for_window [class="floating"] floating enable
 for_window [ title="floatwin" ] floating enable
