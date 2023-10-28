@@ -33,6 +33,8 @@ bindsym $mod+Tab exec --no-startup-id rofi  -show window -show-icons
 # rofi-calc - useful calc tool
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 
+bindsym $mod+i exec --no-startup-id "rofi -show wifi -modi 'wifi:iwdrofimenu'"
+
 # %%hotkey: List dmenu Hotkeys %%
 #
 
@@ -91,7 +93,6 @@ mode "$mode_zero" {
 
 #Autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
@@ -391,8 +392,7 @@ for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [class="Gcolor3"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="copyq"] floating enable
-for_window [class="uget-gtk"] floating enable
-
+for_window [class="org-jdownloader-update-launcher-JDLauncher"] floating enable
 
 for_window [class="floating"] floating enable
 for_window [ title="floatwin" ] floating enable
