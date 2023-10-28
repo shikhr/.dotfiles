@@ -151,6 +151,8 @@ alias gdcheckdown='rclone check gdex:mydocs ~/Documents'
 
 alias "ip a"='ip -c a'
 
+alias "cs=xclip -selection clipboard"
+
 # Mongodb
 alias runmongo='sudo systemctl start mongodb.service'
 alias stopmongo='sudo systemctl stop mongodb.service'

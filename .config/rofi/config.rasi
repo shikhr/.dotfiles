@@ -9,7 +9,7 @@ configuration {
     drun-display-format: "{icon} {name}";
     font: "FiraCode Nerd Font Mono 14";
     modes: [window,drun,file-browser-extended];
-    kb-mode-next: "Shift+Right,Tab";
+    kb-mode-next: "Tab,Shift+Right";
     kb-element-next: "Control+Tab";
 }
 
@@ -71,7 +71,7 @@ listview {
     border:       0px 0px 0px 0px ;
     border-color: @separatorcolor;
     spacing:      0px;
-    scrollbar:    true;
+    scrollbar:    false;
     padding:      4px 0px 0px ;
 }
 element {
