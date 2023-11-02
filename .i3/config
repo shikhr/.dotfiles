@@ -93,7 +93,6 @@ mode "$mode_zero" {
 
 #Autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
 exec --no-startup-id copyq
@@ -393,6 +392,7 @@ for_window [class="Gcolor3"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="org-jdownloader-update-launcher-JDLauncher"] floating enable
+for_window [class="iwgtk"] floating enable
 
 for_window [class="floating"] floating enable
 for_window [ title="floatwin" ] floating enable
@@ -433,9 +433,9 @@ bindsym Shift+Print exec --no-startup-id "maim -s ~/Pictures/screenshots/screens
 bindsym $mod+Print exec --no-startup-id "maim -s --format png /dev/stdout | copyq write image/png -"
 
 #change volume
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%-
-#bindsym XF86AudioMute exec amixer --no-startup-id set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id "volu up"
+bindsym XF86AudioLowerVolume exec --no-startup-id "volu down"
+bindsym XF86AudioMute exec --no-startup-id "volu mute"
 
 # music control
 bindsym XF86AudioNext exec --no-startup-id playerctl next
