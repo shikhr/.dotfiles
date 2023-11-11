@@ -3,12 +3,16 @@
 #chosen=$(printf "  Power Off\n  Restart\n  Suspend\n  Hibernate\n  Log Out\n  Lock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
 chosen=$(printf "  Power Off\n  Restart\n  Suspend\n  Log Out\n  Lock" | rofi -dmenu -i)
 
+lock() {
+  i3exit lock
+}
+
 case "$chosen" in
 	"  Power Off") rofi-prompt --query 'Shutdown?' && poweroff ;;
 	"  Restart") rofi-prompt --query 'Reboot?' && reboot ;;
-	"  Suspend") systemctl suspend ;;
+	"  Suspend") lock && systemctl suspend ;;
 	"  Hibernate") systemctl hibernate ;;
 	"  Log Out") i3-msg exit ;;
-	"  Lock") i3exit lock ;;
+	"  Lock") lock ;;
 	*) exit 1 ;;
 esac

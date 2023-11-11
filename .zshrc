@@ -148,6 +148,13 @@ alias gdpush='rclone sync --interactive -P ~/Documents gdex:mydocs'
 alias gdpull='rclone sync --interactive -P gdex:mydocs ~/Documents'
 alias gdcheckup='rclone check ~/Documents gdex:mydocs'
 alias gdcheckdown='rclone check gdex:mydocs ~/Documents'
+alias gdcheck='echo "REMOTE:";gdcheckup && echo "LOCAL:";gdcheckdown'
+
+alias sharepush='rclone sync --interactive -P ~/main/college/shared_content shared:shared_content'
+alias sharepull='rclone sync --interactive -P shared:shared_content ~/main/college/shared_content'
+alias sharecheckup='rclone check ~/main/college/shared_content shared:shared_content'
+alias sharecheckdown='rclone check shared:shared_content ~/main/college/shared_content'
+alias sharecheck='echo "REMOTE:";sharecheckup && echo "LOCAL:";sharecheckdown'
 
 alias "ip a"='ip -c a'
 
