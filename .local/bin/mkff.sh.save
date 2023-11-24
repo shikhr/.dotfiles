@@ -18,13 +18,13 @@ fi
 
 cd "$cur"
 
+exits=$(ls | grep tt)
+
 mkdir "./$2/"
 
 if [[ $1 == "cp" ]]
 then
   touch "./$2/main.cpp"
-  touch "./$2/input.txt"
-  touch "./$2/output.txt"
 else
   touch "./$2/$2"
 fi
@@ -33,10 +33,7 @@ cd "./$2"
 
 if [[ $1 == "cp" ]]
 then
-  code . -r --profile "dsa"
+  code . -r
   code main.cpp
-  code input.txt
-  code output.txt
 fi
-
 
