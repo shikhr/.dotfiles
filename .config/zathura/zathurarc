@@ -1,0 +1,3 @@
+map bl feedkeys ":blist <Tab>"
+map bb feedkeys ":bmark "
+map bd feedkeys ":bdelete <Tab>"
